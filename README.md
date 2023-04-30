@@ -11,3 +11,4 @@ For Darey.io PBL Project 11 of 30
 - April 30, 2023
 - Jenkins Pipeline Test
   - Try again
+- Added Elastic IP

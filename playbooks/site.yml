@@ -10,11 +10,11 @@
     - always
 
 - name: import database file
-  import_playbook: ../dynamic-assignments/db.yml
+  import_playbook: ../static-assignments/db.yml
 
 - name: import webservers file
-  import_playbook: ../dynamic-assignments/webservers.yml
+  import_playbook: ../static-assignments/webservers.yml
 
 - name: import loadbalancers assignment
-  import_playbook: ../dynamic-assignments/loadbalancers.yml
+  import_playbook: ../static-assignments/loadbalancers.yml
   when: load_balancer_is_required

@@ -2,11 +2,8 @@
 - name: Prepare web and nfs servers
   hosts: webservers, nfs
   become: yes
-  gather_facts: False
   tasks:
     - name: Ensure Python3 is installed
-      vars:
-        ansible_python_interpreter: /usr/bin/python
       yum:
         name: python3
         update_cache: yes

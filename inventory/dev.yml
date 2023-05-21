@@ -1,14 +1,14 @@
+[webservers]
+10.166.0.5 ansible_user=dankuta
+
+[db]
+10.166.0.5 ansible_user=dankuta
+
 # [tooling]
 # <Tooling-Web-Server-Private-IP-Address>
 
 # [todo]
 # <Todo-Web-Server-Private-IP-Address>
-
-# [nginx]
-# <Nginx-Private-IP-Address>
-
-# [db]
-# <DB-Server-Private-IP-Address>
 
 # [db:vars]
 # ansible_user=ec2-user

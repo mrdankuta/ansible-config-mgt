@@ -1,53 +1,36 @@
 pipeline {
     agent any
-
+    environment {
+      ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+    }
     stages {
-        stage('Initial Cleanup') {
-            steps {
-                dir("${WORKSPACE}") {
-                    deleteDir()
-                }
-            }
+      stage ('Initial Cleanup') {
+        steps {
+          dir("${WORKSPACE}"){
+            deleteDir()
+          }
         }
-        stage('Build') {
-            steps {
-                script {
-                    sh 'echo "Building Stage"'
-                }
-            }
+      }
+      stage ('Checkout SCM') {
+        steps {
+          git branch: 'main', url: 'https://github.com/mrdankuta/ansible-config-mgt.git'
         }
-        stage('Test') {
-            steps {
-                script {
-                    sh 'echo "Testing Stage"'
-                }
-            }
+      }
+      stage ('Prepare Ansible for Execution') {
+        steps {
+          sh 'echo ${WORKSPACE}'
+          sh 'sed -i "3 i roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'
         }
-        stage('Package') {
-            steps {
-                script {
-                    sh 'echo "Packing Stage"'
-                }
-            }
+      }
+      stage ('Run Ansible Playbook') {
+        steps {
+          ansiblePlaybook become: true, credentialsId: 'ansible_target_1', disableHostKeyChecking: true, installation: 'jensible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    sh 'echo "Deploying Stage"'
-                }
-            }
+      }
+      stage ('Cleanup After Build') {
+        steps {
+          cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
         }
-        stage('Clean Up') {
-            steps {
-                script {
-                    sh 'echo "Cleaning Stage"'
-                }
-            }
-        }
-        stage('Cleanup') {
-            steps {
-                cleanWs()
-            }
-        }
+      }
     }
 }

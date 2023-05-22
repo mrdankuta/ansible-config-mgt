@@ -28,17 +28,17 @@
   when: ansible_os_family == 'Archlinux'
 
 # Vhost configuration.
-- import_tasks: vhosts.yml
+# - import_tasks: vhosts.yml
 
-- name: set webservers host name in /etc/hosts
-  become: yes
-  blockinfile:
-    path: /etc/hosts
-    block: |
-      {{ item.ip }} {{ item.name }}
-  loop:
-    - { name: web1, ip: 172.31.22.239 }
-    - { name: web2, ip: 172.31.22.222 }
+# - name: set webservers host name in /etc/hosts
+#   become: yes
+#   blockinfile:
+#     path: /etc/hosts
+#     block: |
+#       {{ item.ip }} {{ item.name }}
+#   loop:
+#     - { name: web1, ip: 172.31.22.239 }
+#     - { name: web2, ip: 172.31.22.222 }
 
 # Nginx setup.
 - name: Copy nginx configuration in place.

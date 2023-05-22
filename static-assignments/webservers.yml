@@ -1,5 +1,5 @@
 ---
 - hosts: webservers
   roles:
-    - nginx
+    - webserver
   become: true

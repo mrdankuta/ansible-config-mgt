@@ -5,6 +5,7 @@
   ansible.builtin.yum:
     name: "httpd"
     state: latest
+    use_backend: "yum4"
 
 
 - name: install git

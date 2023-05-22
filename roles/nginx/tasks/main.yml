@@ -4,6 +4,7 @@
   ansible.builtin.yum:
       name: nginx
       state: present
+      use_backend: "dnf"
 
 - name: ensure nginx is started and enabled
   ansible.builtin.service:

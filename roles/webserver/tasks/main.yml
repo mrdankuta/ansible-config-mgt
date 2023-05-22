@@ -2,13 +2,13 @@
 # tasks file for webserver
 - name: install apache
   become: true
-  yum:
+  ansible.builtin.yum:
     name: "httpd"
     state: present
 
 - name: install git
   become: true
-  yum:
+  ansible.builtin.yum:
     name: "git"
     state: present
 

@@ -1,19 +1,9 @@
 ---
 # tasks file for nginx
-# - name: install python3-dnf
-#   vars: 
-#     ansible_python_interpreter: /usr/libexec/platform-python
-#   ansible.builtin.dnf:
-#       name: python3-dnf
-#       state: present
-
 - name: install nginx on the webserver
-  vars:
-    ansible_python_interpreter: /usr/libexec/platform-python
   ansible.builtin.yum:
       name: nginx
       state: present
-      use_backend: "dnf"
 
 - name: ensure nginx is started and enabled
   ansible.builtin.service:

@@ -1,5 +1,0 @@
-[webservers]
-10.166.0.7 ansible_user=dankuta
-
-[db]
-10.166.0.8 ansible_user=dankuta

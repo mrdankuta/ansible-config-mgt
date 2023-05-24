@@ -4,7 +4,7 @@ pipeline {
       ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
     }
     parameters {
-      string(name: 'inventory', defaultValue: 'dev.yml',  description: 'This is the inventory file for the environment to deploy configuration')
+      string(name: 'inventory', defaultValue: 'dev.yml',  description: 'This is the inventory file for the environment to deploy configuration. Please add correct file extension')
     }
     stages {
       stage ('Initial Cleanup') {

@@ -3,13 +3,3 @@
 
 [db]
 10.166.0.8 ansible_user=dankuta
-
-# [tooling]
-# <Tooling-Web-Server-Private-IP-Address>
-
-# [todo]
-# <Todo-Web-Server-Private-IP-Address>
-
-# [db:vars]
-# ansible_user=ec2-user
-# ansible_python_interpreter=/usr/bin/python

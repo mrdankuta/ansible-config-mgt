@@ -27,7 +27,7 @@ pipeline {
       }
       stage ('Run Ansible Playbook') {
         steps {
-          ansiblePlaybook become: true, credentialsId: 'ansible_target_1', disableHostKeyChecking: true, installation: 'jensible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml'
+          ansiblePlaybook become: true, credentialsId: 'ansible_target_1', disableHostKeyChecking: true, installation: 'jensible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
         }
       }
       stage ('Cleanup After Build') {

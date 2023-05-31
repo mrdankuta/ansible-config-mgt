@@ -3,3 +3,6 @@
 
 [db]
 10.166.0.8 ansible_user=dankuta
+
+[todo]
+10.166.0.10 ansible_user=dankuta

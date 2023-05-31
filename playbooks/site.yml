@@ -1,6 +1,9 @@
 ---
-- name: import database file
-  ansible.builtin.import_playbook: ../static-assignments/db.yml
+# - name: import database file
+#   ansible.builtin.import_playbook: ../static-assignments/db.yml
+
+- name: Deploy todo app
+  ansible.builtin.import_playbook: ../static-assignments/deployment.yml
 
 # - name: import webservers file
 #   ansible.builtin.import_playbook: ../static-assignments/webservers.yml

@@ -1,11 +1,11 @@
 [artifactory]
 10.166.0.9 ansible_user=dankuta
 
+[sonarqube]
+10.166.0.11 ansible_user=dankuta
+
 # [jenkins]
 # <Jenkins-Private-IP-Address>
 
 # [nginx]
 # <Nginx-Private-IP-Address>
-
-# [sonarqube]
-# <SonarQube-Private-IP-Address>
